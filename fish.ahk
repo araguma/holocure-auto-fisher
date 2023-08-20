@@ -4,10 +4,10 @@ CoordMode "Pixel"
 
 if WinExist("HoloCure") {
     WinGetPos &X, &Y, &W, &H
-    X := X + 774
-    Y := Y + 486
-    X2 := X + 24
-    Y2 := Y + 54
+    X := X + 784
+    Y := Y + 488
+    X2 := X + 1
+    Y2 := Y + 50
     loop {
         if ImageSearch(&FoundX, &FoundY, X, Y, X2, Y2, "*TransBlack *16 " A_ScriptDir "/images/up.png") {
             Send "{w down}"
@@ -34,6 +34,5 @@ if WinExist("HoloCure") {
             Sleep 50
             Send "{space up}"
         }
-        Sleep 50
     }
 }
