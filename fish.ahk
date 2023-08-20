@@ -3,36 +3,36 @@
 CoordMode "Pixel"
 
 if WinExist("HoloCure") {
-    WinGetPos &X, &Y, &W, &H
+    WinGetPos &X, &Y
     X := X + 784
-    Y := Y + 488
-    X2 := X + 1
-    Y2 := Y + 50
+    Y := Y + 490
     loop {
-        if ImageSearch(&FoundX, &FoundY, X, Y, X2, Y2, "*TransBlack *16 " A_ScriptDir "/images/up.png") {
-            Send "{w down}"
-            Sleep 50
-            Send "{w up}"
-        }
-        else if ImageSearch(&FoundX, &FoundY, X, Y, X2, Y2, "*TransBlack *16 " A_ScriptDir "/images/down.png") {
-            Send "{s down}"
-            Sleep 50
-            Send "{s up}"
-        }
-        else if ImageSearch(&FoundX, &FoundY, X, Y, X2, Y2, "*TransBlack *16 " A_ScriptDir "/images/left.png") {
-            Send "{a down}"
-            Sleep 50
-            Send "{a up}"
-        }
-        else if ImageSearch(&FoundX, &FoundY, X, Y, X2, Y2, "*TransBlack *16 " A_ScriptDir "/images/right.png") {
-            Send "{d down}"
-            Sleep 50
-            Send "{d up}"
-        }
-        else if ImageSearch(&FoundX, &FoundY, X, Y, X2, Y2, "*TransBlack *16 " A_ScriptDir "/images/space.png") {
-            Send "{space down}"
-            Sleep 50
-            Send "{space up}"
+        if(PixelGetColor(X, Y) == "0xFBFBFB") {
+            if(PixelGetColor(X, Y + 42) == "0xE13232") {
+                Send "{w down}"
+                Sleep 50
+                Send "{w up}"
+            }
+            if(PixelGetColor(X, Y + 48) == "0x3490F5") {
+                Send "{s down}"
+                Sleep 50
+                Send "{s up}"
+            }
+            if(PixelGetColor(X, Y + 40) == "0xF5C543") {
+                Send "{a down}"
+                Sleep 50
+                Send "{a up}"
+            }
+            if(PixelGetColor(X, Y + 40) == "0x2DEB2B") {
+                Send "{d down}"
+                Sleep 50
+                Send "{d up}"
+            }
+            if(PixelGetColor(X, Y + 30) == "0xAE31D0") {
+                Send "{space down}"
+                Sleep 50
+                Send "{space up}"
+            }
         }
     }
 }
